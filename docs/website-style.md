@@ -83,10 +83,38 @@ You can add CSS classes directly to roles and divs using [Inline Options syntax]
 
 The HTML themes come with [a grid system of CSS classes](https://jupyter-book.github.io/myst-theme/?path=/docs/components-grid-system--docs), which can be used out-of-the-box to position content.
 
-(light-dark-css)=
-## Provide Light and Dark Mode images
+## Tailwind CSS Classes
 
-You can use [Tailwind CSS classes](https://tailwindcss.com/docs/dark-mode) to make certain content show up in light vs. dark mode. By default items are shown in light mode, so here is how you can control light vs. dark behavior:
+The HTML themes come with support for [Tailwind CSS utility classes](https://tailwindcss.com/docs/styling-with-utility-classes).
+
+:::{warning} This will only work if you're using the default themes
+The syntax below depends on [Tailwind CSS](https://tailwindcss.com/docs/dark-mode), which comes with the default themes. If you're using a custom HTML theme, these classes may not work.
+:::
+
+### E.g. Floating image with text-wrap
+
+Here is an example using the Tailwind [float](https://tailwindcss.com/docs/float) and [margin](https://tailwindcss.com/docs/margin) utilities to implement text wrapping around a figure:
+
+````{myst}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed vestibulum tellus, sit amet feugiat lacus. Vestibulum velit velit, sagittis eget risus nec, commodo tincidunt lorem. Maecenas imperdiet lacinia vestibulum. 
+
+:::{figure} https://picsum.photos/id/640/400/200
+:name: my-fig
+:alt: Random image of the beach or ocean!
+:figclass: float-right ml-4
+
+Relaxing at the beach 🏝 🌊 😎
+:::
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed vestibulum tellus, sit amet feugiat lacus. Vestibulum velit velit, sagittis eget risus nec, commodo tincidunt lorem. Maecenas imperdiet lacinia vestibulum. 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed vestibulum tellus, sit amet feugiat lacus. Vestibulum velit velit, sagittis eget risus nec, commodo tincidunt lorem. Maecenas imperdiet lacinia vestibulum.
+````
+
+(light-dark-css)=
+### E.g. Provide Light and Dark Mode images
+
+You can use [Tailwind dark-mode utilities](https://tailwindcss.com/docs/dark-mode) to make certain content show up in light vs. dark mode. By default items are shown in light mode, so here is how you can control light vs. dark behavior:
 
 **To only show in dark mode**, attach the CSS class `hidden dark:block`. This hides the element by default, and sets its display to `block` when the Dark theme is active.
 
@@ -105,7 +133,3 @@ The theme is dark.
 The theme is light.
 :::
 ````
-
-:::{warning} This will only work if you're using the default themes
-This syntax depends on [Tailwind CSS](https://tailwindcss.com/docs/dark-mode), which comes with the default themes. If you're using a custom HTML theme, these classes may not work.
-:::
